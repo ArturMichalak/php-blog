@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" crossorigin="anonymous"
+          href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.3/tailwind.min.css"
+          integrity="sha512-wl80ucxCRpLkfaCnbM88y4AxnutbGk327762eM9E/rRTvY/ZGAHWMZrYUq66VQBYMIYDFpDdJAOGSLyIPHZ2IQ==">
+</head>
+<body>
+
+<div class="flex min-h-screen">
+    <div class="bg-blue-400 w-48">
+        <div class="flex items-center justify-between text-white m-4">
+        {% if button['name'] %}
+            <span class="py-1">{{ button['name'] }}</span>
+            <a class="px-2 py-1 border rounded border-white hover:bg-blue-500 duration-500" href="/logout">Wyloguj</a>
+        {% else %}
+            <a class="py-1" href="{{ button['code'] }}">Zaloguj w google</a>
+        {% endif %}
+        </div>
+    </div>
+<main class="m-6 lg:mt-16 max-w-3xl">
+    {% block content %}
+    {% endblock %}
+</main>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+    "scripts": {
+        "serve": "@php -S 0.0.0.0:8000 -t web/"
+    },
+    "autoload": {
+        "psr-4": {
+            "BlogPage\\": "src/BlogPage/",
+            "Libs\\": "src/Libs/"
+        }
+    },
+    "require": {
+        "php": ">=8.0.3",
+        "php-di/php-di": "^6.3",
+        "nikic/fast-route": "^1.3.0",
+        "twig/twig": "^3.2",
+        "ramsey/uuid": "^4.1",
+        "symfony/console": "^5.2",
+        "mnapoli/silly": "^1.7",
+        "ext-pdo": "*",
+        "google/apiclient": "^2.9",
+        "ext-curl": "*",
+        "rlanvin/php-form": "^2.0"
+    },
+    "name": "zad_php/test",
+    "description": "hello articles world!",
+    "license": "MIT",
+    "type": "project"
+}

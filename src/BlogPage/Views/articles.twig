@@ -1,0 +1,9 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+    <ul>
+    {% for article in articles %}
+        <li class="mb-4 flex justify-between items-center text-blue-600"><a class="text-2xl text-black" href="/article/{{ article.id }}">{{ article.title }}</a><a class="mx-4" href="#">edytuj</a><a href="#">usuń</a></li>
+    {% endfor %}
+    </ul>
+{% endblock %}
