@@ -1,0 +1,54 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+    <form action="/{{ action }}" method="post" class="flex flex-col">
+        <label class="my-2 flex items-center">Tytuł<input autofocus type="text" value="{{ values['title'] }}" class="border px-2 py-1 rounded ml-6 flex-grow" name="title"></label>
+        {% if errors['title']['required'] %}
+            <span class="text-red-600">
+                Pole wymagane
+            </span>
+        {% endif %}
+        {% if errors['title']['max_length'] %}
+            <span class="text-red-600">
+                Maksymalnie {{ errors['title']['max_length'] }} znaków!
+            </span>
+        {% endif %}
+        <label class="my-2 flex items-center">Treść<textarea class="border px-2 py-1 rounded ml-6 flex-grow" name="content">{{ values['content'] }}</textarea></label>
+        {% if errors['content']['required'] %}
+            <span class="text-red-600">
+                Pole wymagane
+            </span>
+        {% endif %}
+        {% if errors['content']['max_length'] %}
+            <span class="text-red-600">
+                Maksymalnie {{ errors['content']['max_length'] }} znaków!
+            </span>
+        {% endif %}
+
+        <label class="my-2 flex items-center">Slug<input type="text" class="border px-2 py-1 rounded ml-6 flex-grow" name="slug" value="{{ values['slug'] }}"/></label>
+        {% if errors['slug']['required'] %}
+            <span class="text-red-600">
+                Pole wymagane
+            </span>
+        {% endif %}
+        {% if errors['slug']['max_length'] %}
+            <span class="text-red-600">
+                Maksymalnie {{ errors['slug']['max_length'] }} znaków!
+            </span>
+        {% endif %}
+
+        <label class="my-2 flex items-center">Kategoria<input type="text" class="border px-2 py-1 rounded ml-6 flex-grow" name="category" value="{{ values['category'] }}"/></label>
+        {% if errors['category']['required'] %}
+            <span class="text-red-600">
+                Pole wymagane
+            </span>
+        {% endif %}
+        {% if errors['category']['max_length'] %}
+            <span class="text-red-600">
+                Maksymalnie {{ errors['category']['max_length'] }} znaków!
+            </span>
+        {% endif %}
+        <button class="bg-blue-400 py-1 text-white px-4 self-center" type="submit">Zapisz</button>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+    Czy jesteś pewien, że chcesz usunąć artykuł?
+    <form action="/usun" method="post">
+        <input name="id" type="hidden" value="{{ id }}"/>
+        <button class="m-4 px-4 py-1 text-md text-white bg-red-700 rounded hover:bg-red-500 duration-500" type="submit">USUŃ</button>
+        <a href="/{{ id }}" class="inline-block m-4 px-4 py-1 text-md border border-blue-400 text-blue-400 rounded hover:text-blue-600 duration-500 hover:border-blue-600">ARTYKUŁ</a>
+    </form>
+{% endblock %}

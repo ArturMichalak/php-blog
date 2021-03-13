@@ -1,9 +1,11 @@
 {% extends 'layout.twig' %}
 
 {% block content %}
+    <div class="my-4"><a class="px-3 py-1 border rounded border-4 border-blue-400 text-blue-400" href="/nowy">Nowy artykuł</a></div>
     <ul>
     {% for article in articles %}
-        <li class="mb-4 flex justify-between items-center text-blue-600"><a class="text-2xl text-black" href="/article/{{ article.id }}">{{ article.title }}</a><a class="mx-4" href="#">edytuj</a><a href="#">usuń</a></li>
+        <li class="mb-4 flex justify-between items-center text-blue-600">
+            <a class="text-2xl text-black" href="/{{ article.article_id }}">{{ article.title }} · <span class="text-xl">{{ article.category }}</span></a><div><a class="mx-4" href="/edytuj/{{ article.article_id }}">edytuj</a><a href="/usun/{{ article.article_id }}">usuń</a></div></li>
     {% endfor %}
     </ul>
 {% endblock %}

@@ -2,6 +2,9 @@
     "scripts": {
         "serve": "@php -S 0.0.0.0:8000 -t web/"
     },
+    "config": {
+        "process-timeout": 0
+    },
     "autoload": {
         "psr-4": {
             "BlogPage\\": "src/BlogPage/",

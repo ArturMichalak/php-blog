@@ -17,7 +17,8 @@ class GoogleAuth implements GoogleAuthInterface
         $client->setAuthConfig(__DIR__ . '/../../../credentials.json');
         $guzzleClient = new Client(array( 'curl' => array( CURLOPT_SSL_VERIFYPEER => false, ), ));
         $client->setHttpClient($guzzleClient);
-        $client->addScope(Google_Service_Oauth2::USERINFO_PROFILE);
+        //$client->addScope(Google_Service_Oauth2::USERINFO_PROFILE);
+        $client->addScope(Google_Service_Oauth2::USERINFO_EMAIL);
         $this->client = $client;
         session_start();
     }
@@ -67,7 +68,7 @@ class GoogleAuth implements GoogleAuthInterface
         {
             $result = ['code' => $this->client->createAuthUrl()];
         } else {
-            $result = ['name' => $_SESSION['user_first_name'], 'lastname' => $_SESSION['user_last_name']];
+            $result = ['email' => $_SESSION['user_email_address']];
         }
 
         return $result;
